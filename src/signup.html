@@ -6,20 +6,24 @@
     <title>Main Store - register user</title>
     <link rel="icon" type="image/png" href="icons/tienda.png">
 </head>
-<body>
+ <body>
     <h3>Register User</h3>
+    <form name="register-form" action="signup.php" method="post">
+
     <label> First Name: </label><br>
-    <input type="text" ><br><br>
+    <input type="text" name="fname" required><br><br>
     <label> Last Name: </label><br>
-    <input type="text" ><br><br>
+    <input type="text" name="lname" required><br><br>
     <label> identification number: </label><br>
-    <input type="text" ><br><br>
+    <input type="text" name="idname" required><br><br>
     <label> mobile phone: </label><br>
-    <input type="text" ><br><br>
+    <input type="text" name="phonename" required><br><br>
     <label> Email: </label><br>
-    <input type="text" ><br><br>
+    <input type="email" name="emailname" placeholder="@gmail.com" required><br><br>
     <label> Password: </label><br>
-    <input type="text" ><br><br>
+    <input type="password" name="passwordname" required><br><br>
     <button>register</button>
-</body>
+
+    </form>
+ </body>
 </html>
