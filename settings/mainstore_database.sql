@@ -13,3 +13,10 @@ CREATE TABLE users (
     updated_at    TIMESTAMPTZ   NOT NULL DEFAULT NOW(),
     deleted_at    TIMESTAMPTZ
 );
+
+-- crear un usuario en la lista
+
+select * from users u;
+
+-- ingresar los datos 
+INSERT INTO users (firstname, lastname, ident_number, email, password) VALUES (‘Joan’, ’Ayala’, ‘56890988’, ‘joan@mail.com’, ‘123456’) ;
