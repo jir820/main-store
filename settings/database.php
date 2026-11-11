@@ -37,12 +37,12 @@
     if (!$local_conn) {
         die("Error connection");
     }else{
-        echo "success database connection !!!";
+       // echo "success database connection !!!";
     }
     if (!$supa_conn) {
         die("Error connection");
     }else{
-        echo "<br>success database connection !!!";
+       // echo "<br>success database connection !!!";
     }
  
 ?>
