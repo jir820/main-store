@@ -12,6 +12,7 @@ CREATE TABLE users (
     created_at    TIMESTAMPTZ   NOT NULL DEFAULT NOW(),
     updated_at    TIMESTAMPTZ   NOT NULL DEFAULT NOW(),
     deleted_at    TIMESTAMPTZ
+
 );
 
 -- crear un usuario en la lista

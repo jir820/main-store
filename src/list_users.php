@@ -1,11 +1,19 @@
 <?php
+/*session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('refresh:0;url=signin.html');
+} else {
+    header('refresh:0;url=home.php');
+}
+ */
+ 
 
 require('../settings/database.php');
 // get data from users
 $sql = "
 select 
     id,
-    firstname ||' '  || lastname as fullname, 
+    firstname || ' '  || lastname as fullname, 
     email, 
     mobile_phone, 
     case when status = true then 'active' else 'inactive' end as status,  
@@ -28,6 +36,7 @@ $res = pg_query($local_conn, $sql);
 </head>
 <body>
 
+    <h1>Lista de usuarios</h1>
     <table class="table table-striped">
         <tr>
             <th>Photo</th>         
@@ -40,8 +49,12 @@ $res = pg_query($local_conn, $sql);
         <?php while ($row = pg_fetch_assoc($res)) { ?>
         <tr>     
          <!-- here print data from database--> 
-          <td> 
-            <img src="<?= $row['url_photo']; ?>" width="40" alt="user photo profile">
+          <td>    
+            <?php if ($row['url_photo'] != "") { ?>
+                    <img src="<?php echo $row['url_photo']; ?>" width="60" height="60">
+                <?php } else { ?>
+                    Sin foto
+                <?php } ?>
           </td>
           <td><?= $row['fullname']; ?></td>
           <td><?= $row['email']; ?></td>
@@ -49,13 +62,13 @@ $res = pg_query($local_conn, $sql);
           <td><?= $row['status']; ?></td>
           <td><?= $row['url_photo']; ?></td>
           <td align="center">
-            <a href="#">
+            <a href="edit_user.php?id=<?=  $row['id']; ?>">
                 <img src="icons/pencil.png" alt="edit user" width="20" >
-            </a> 
+            </a>
             <a href="#">
                 <img src="icons/search.png" alt="search user" width="20" >
             </a>
-            <a href="delete_user.php?userID=<?= $row['id']; ?>">
+            <a href="delete_user.php?id=<?= $row['id']; ?>">
                 <img src="icons/trash.png" alt="delete user" width="20" >
             </a>
           </td>
@@ -66,4 +79,7 @@ $res = pg_query($local_conn, $sql);
     </table>
     
 </body>
+
+menu:
+<a href="home.php">home</a> |
 </html>

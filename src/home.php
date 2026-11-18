@@ -1,4 +1,13 @@
 <?php
+/*session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('refresh:0;url=signin.html');
+} else {
+    header('refresh:0;url=home.php');
+}*/
+
+ 
+
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header('refresh: 0; url=signin.html');
@@ -17,6 +26,10 @@ if (!isset($_SESSION['user_id'])) {
         <?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?>
         <h3>Welcome to main store</h3>
         <a href="logout.php">logout</a>
-    </center>
+    </center> 
+
+    menu:
+    <a href="list_users.php">list users</a>   
 </body>
+
 </html>

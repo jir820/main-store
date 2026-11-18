@@ -1,4 +1,13 @@
 <?php
+/*session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('refresh:0;url=signin.html');
+} else {
+    header('refresh:0;url=home.php');
+}
+ */
+ 
+
 //get data connection
     require('../settings/database.php');
 
@@ -9,7 +18,7 @@
     $phone_name = $_POST['phonename'];
     $email_name = $_POST['emailname'];
     $password_name = MD5($_POST['passwordname']);
-    $PHOTO_URL = 'photos/avatar.png';
+    $url_photo = 'photos/avatar.png';
 
 $sql_check_email = "SELECT * FROM users WHERE email = '$email_name'";
 $res = pg_query($local_conn, $sql_check_email);
@@ -19,7 +28,7 @@ if ($total < 1){
         $sql="
         INSERT INTO 
         users (firstname, lastname, ident_number,mobile_phone, email, password, url_photo) 
-        VALUES ('$firs_name', '$last_name', '$iden_name','$phone_name', '$email_name', '$password_name', '$PHOTO_URL');
+        VALUES ('$firs_name', '$last_name', '$iden_name','$phone_name', '$email_name', '$password_name', '$url_photo');
             ";
     
     
